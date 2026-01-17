@@ -14,13 +14,14 @@ connectDB()
 connectCloudinary()
 
 app.use(cors({
-  origin: "https://forever-frontend-eight-ebon.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: "*",
+  allowedHeaders: ["Content-Type", "token"],
   credentials: true
 }));
 
-app.use(express.json())
 
+app.use(express.json())
+app.use(cors())
 
 
 app.use('/api/user',userRouter)
