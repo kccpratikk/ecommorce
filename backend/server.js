@@ -15,13 +15,13 @@ connectCloudinary()
 
 app.use(cors({
   origin: "*",
-  allowedHeaders: ["Content-Type", "token"],
-  credentials: true
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "token"]
 }));
-
+app.options("*", cors());
 
 app.use(express.json())
-app.use(cors())
+
 
 
 app.use('/api/user',userRouter)
