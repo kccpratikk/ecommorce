@@ -13,9 +13,7 @@ const PORT = process.env.PORT || 4000
 connectDB()
 connectCloudinary()
 
-app.use(cors({
-  origin: "https://forever-frontend-eight-ebon.vercel.app"
-}));
+app.use(cors());
 
 
 app.use(express.json())
