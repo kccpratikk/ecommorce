@@ -12,18 +12,19 @@ import Contact from './pages/Contact'
 import PlaceOrder from './pages/PlaceOrder'
 import Cart from './pages/Cart'
 import NavBar from './components/NavBar'
-import { ShopContextProvider } from './context/ShopContext'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
 import { ToastContainer } from 'react-toastify';
 import Verify from './pages/Verify'
+import Account from './pages/Account'
+import ChangeAccount from './pages/ChangeAccount'
 
 
 function App() {
   
-
+ 
   return (
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
        <ToastContainer />
       <NavBar/>
       <SearchBar/>
@@ -35,10 +36,12 @@ function App() {
       <Route path='/product/:productId' element={<Product/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/login' element={<Login/>}/>
-      <Route path='orders' element={<Orders/>}/>
+      <Route path='/orders' element={<Orders/>}/>
       <Route path='/cart' element={<Cart/>}/>
       <Route path='/place-order' element={<PlaceOrder/>}/>
       <Route path='/verify' element={<Verify/>}/>
+      <Route path='/account' element={<Account/>}/>
+      <Route path='/details' element={<ChangeAccount/>}/> 
     </Routes>
     <Footer/>
     </div>

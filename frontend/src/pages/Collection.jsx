@@ -5,7 +5,8 @@ import Title from '../components/Title'
 import ProductItem from '../components/ProductItem'
 
 function Collection() {
- 
+  
+  
   const [showFilter,setShowFilter] = useState(false)
   const [filterProducts,setFilterProducts] = useState([])
   const [filterByCategory,setFilterByCategory] = useState([])
@@ -81,7 +82,7 @@ function Collection() {
  }
 
   return (
-    <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
+    <div className={`flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t ${showSearch?"opacity-80":""}`}>
       {/* Filter options*/ console.log(product)}
       <div className='min-w-60'>
         <p onClick={()=>setShowFilter(prev=>!prev)} className='my-2 text-xl flex items-center cursor-pointer gap-2'>FILTERS <img src={assets.dropdown_icon} className={`h-3 sm:hidden ${showFilter?'rotate-90':''}`}/></p>

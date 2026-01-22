@@ -32,6 +32,7 @@ import stripe_log from "./stripe_logo.png"
 import razorpay_logo from "./razorpay_logo.png"
 import about_img from "./about_img.png"
 import contact_img from "./contact_img.png"
+import order_png from "./package.png"
 
 export const assets = {
     logo,
@@ -65,7 +66,8 @@ export const assets = {
     stripe_log,
     razorpay_logo,
     about_img,
-    contact_img
+    contact_img,
+    order_png
 
  
 }

@@ -96,4 +96,46 @@ const adminLogin  = async (req,res)=>{
     }
 }
 
-export {loginUser,registerUser,adminLogin}
+const getUser = async(req,res)=>{
+  try{
+     
+    const {userId} = req.body
+   console.log(userId)
+    const userData =await userModel.findById(userId)
+
+    res.json({success:true,userData})
+
+  }catch(err){
+    res.json({success:false,message:err.message})
+  }
+}
+
+const updateUser = async(req,res)=>{
+    try{
+      
+      const {name,email,password,userId} = req.body;
+
+      const data = {}
+
+      if(name)
+      data.name = name
+      
+      if(email)
+        data.email= email
+
+      if(password){
+        const salt = await bcrypt.genSalt(10)
+        const hashedPassword  = await bcrypt.hash(password,salt)
+        data.password=hashedPassword
+      }
+      
+      await userModel.findByIdAndUpdate(userId,data)
+
+      res.json({success:true,message:"user details has been updated"})
+
+    }catch(err){
+       res.json({success:false,message:err.message})
+    }
+}
+
+export {loginUser,registerUser,adminLogin,getUser,updateUser}

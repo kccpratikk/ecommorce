@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { createContext, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios"
 
@@ -11,10 +12,14 @@ export const ShopContextProvider = ({children})=>{
     const delivery_fee = 10;
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const [showSearch,setShowSearch] = useState(false)
+    const [searchIconVisible, setSearchIconVisible] = useState(true)
     const [search,setSearch] = useState()
     const [cartItems,setCartItems] = useState({})
     const [product,setProduct] = useState([])
     const [token,setToken] = useState("")
+    const loc= useLocation()
+
+    
 
     const addToCart = async(itemId,size)=>{
         
@@ -142,7 +147,9 @@ export const ShopContextProvider = ({children})=>{
        setCartItems,
        backendUrl,
        token,
-       setToken
+       setToken,
+       searchIconVisible,
+       setSearchIconVisible
     }
          
   
@@ -158,6 +165,16 @@ export const ShopContextProvider = ({children})=>{
        }   
      },[]) 
 
+      
+    useEffect(()=>{
+      const path = loc.pathname
+
+      if(path==='/' || path==='/collection')
+      setSearchIconVisible(true)
+      else
+      setSearchIconVisible(false)
+
+    },[loc]) 
 
     return (
         <ShopContext.Provider value={value}>

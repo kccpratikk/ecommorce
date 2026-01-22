@@ -3,7 +3,10 @@ import Title from '../components/Title'
 import { assets } from '../assets/assets'
 import NewLetterBox from '../components/NewLetterBox'
 
+
 function About() {
+
+
   return (
     <div className='text-2xl text-center pt-8 border-t'>
     <Title text1="ABOUT" text2="US"/>
